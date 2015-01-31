@@ -24,7 +24,6 @@ function Update()
 {
 	ClearRect(0, 0, 400, 400);
 	test.draw();
-	test2.draw();
 	DrawGUI();
 }
 

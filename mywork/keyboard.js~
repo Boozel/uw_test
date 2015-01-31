@@ -1,0 +1,13 @@
+
+
+function OnMouseDown(x, y)
+{
+}
+
+function OnMouseUp(x, y)
+{
+}
+
+function OnMouseMove(x, y)
+{
+}
