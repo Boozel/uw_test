@@ -7,11 +7,13 @@ function Init()
 	var canvas = document.getElementById("maincanvas");
 	context = canvas.getContext("2d");
 
-	test = new action();
-	test2 = new action();
-	
-	test.initialize(10, 10, 10, 10, 'resc/test.png');
-	test2.initialize(100, 100, 50, 50, 'resc/test.png');
+	bottomBar = [];
+
+	for(var i = 0; i < 10; i++)
+	{
+		bottomBar[i] = new HOTKEY_PLATE();
+		bottomBar[i].initialize(20 + (i * 45), 100, 40, 40, false, "rgb(100, 100, 100)", 'resc/test.png');
+	}
 
 	//Event Listeners
 	canvas.addEventListener('mousedown', 	MouseEvent.bind(null, OnMouseDown), false);	
@@ -22,11 +24,12 @@ function Init()
 }
 function Update()
 {
-	ClearRect(0, 0, 400, 400);
-	test.draw();
-	test2.draw();
-	DrawGUI();
+	ClearRect(0, 0, 800, 400);
+	for(var i = 0; i < 10; i++)
+	{
+		bottomBar[i].draw();
+	}
+	//DrawGUI();
 }
 
 setInterval(Update, 20);
-

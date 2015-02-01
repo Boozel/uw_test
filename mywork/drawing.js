@@ -56,12 +56,4 @@ function DrawText(x, y, color, text, size, bold)
 
 function DrawGUI()
 {
-    DrawRect(50, 100, 80, 20, true, "rgb(200, 20, 20)");
-    
-    ClearRect(60, 105, 60, 10);
-    
-    DrawRect(48, 98, 84, 24, false, "rgb(80, 100, 90)");
-    
-    DrawText(40, 70, "rgb(0, 0, 130)", "Hello", 20, false);
-    DrawText(40, 90, "rgb(0, 130, 0)", "World!", 25, true);
 }
