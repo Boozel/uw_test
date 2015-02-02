@@ -1,4 +1,4 @@
 UW Programming Test
 ===================
 
-If you can see this README, chances are something broke. Because this repo is private. :D
+Just a simple programming test I'm working on. The goal is to make a mock-up of a game UI in HTML/JS
