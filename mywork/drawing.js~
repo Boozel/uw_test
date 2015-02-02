@@ -1,7 +1,9 @@
-function loadImage(imagePath, imageNumber)
+function loadImage(imagePath)
 {
-	imageBuffer[imageNumber] = new Image();
-	imageBuffer[imageNumber].src = imagePath;
+	var img = new Image();
+	img.src = imagePath;
+
+	return img;
 }
 
 function drawImages()

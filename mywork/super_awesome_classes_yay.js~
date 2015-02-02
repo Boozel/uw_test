@@ -1,4 +1,4 @@
-function actionButton()
+function ACTION_BOX()
 {
 	this.currentAction = 0;		//Function Pointer
 	this.x = 0;
@@ -9,7 +9,7 @@ function actionButton()
 	this.rgb = "NULL";
 }
 
-actionButton.prototype.initialize = function(x, y, w, h, fill, rgb)
+ACTION_BOX.prototype.initialize = function(x, y, w, h, fill, rgb)
 {
 	this.x = x;
 	this.y = y;
@@ -19,13 +19,13 @@ actionButton.prototype.initialize = function(x, y, w, h, fill, rgb)
 	this.rgb = rgb;
 }
 
-actionButton.prototype.draw = function()
+ACTION_BOX.prototype.draw = function()
 {
 	DrawRect(this.x, this.y, this.width, this.height, this.fill, this.rgb);
 }
 
 
-function action()
+function ACTION()
 {
 	this.img = 0;
 	this.x = 0;
@@ -34,7 +34,7 @@ function action()
 	this.height;
 }
 
-action.prototype.initialize = function(x, y, w, h, imgSource)
+ACTION.prototype.initialize = function(x, y, w, h, imgSource)
 {
 	this.x = x;
 	this.y = y;
@@ -43,11 +43,36 @@ action.prototype.initialize = function(x, y, w, h, imgSource)
 	this.img = loadImage(imgSource);
 }
 
-action.prototype.draw = function()
+ACTION.prototype.draw = function()
 {
 	//Don't draw if load is incomplete
 	if(this.img.complete && this.img)
 	{
-		context.drawImage(this.img, 0, 0);
+		context.drawImage(this.img, this.x, this.y, this.width, this.height);
 	}
+}
+
+function HOTKEY_PLATE()
+{
+	this.x = 0;
+	this.y = 0;
+	this.width = 0;
+	this.height = 0;
+	this.box = 0;
+	this.act = 0;	
+}
+
+HOTKEY_PLATE.prototype.initialize = function(x, y, w, h, fill, rgb, imgsrc)
+{
+	this.box = new ACTION_BOX();
+	this.box.initialize(x, y, w, h, fill, rgb);
+
+	this.act = new ACTION();
+	this.act.initialize( (x + 3), (y + 3), (w - 6), (h - 6), imgsrc );
+}
+
+HOTKEY_PLATE.prototype.draw = function()
+{
+	this.box.draw();
+	this.act.draw();
 }
